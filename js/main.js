@@ -91,7 +91,7 @@
     const body = encodeURIComponent(
       'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\nMessage:\n' + message
     );
-    window.location.href = 'mailto:sheraz@softwaresolutions.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:sheraz@softwaresolutions.pk?subject=' + subject + '&body=' + body;
   });
 
 })();
