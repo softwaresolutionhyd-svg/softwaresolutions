@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/assets/logo.svg">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/logo.webp">
   <link rel="stylesheet" href="/css/style.css">
   <style>
 /* ===== CSS Variables ===== */
@@ -141,27 +141,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 18px;
 }
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-  box-shadow: 0 8px 20px -8px rgba(106, 90, 249, 0.55);
-}
-.logo-icon svg {
-  width: 100%;
-  height: 100%;
+.logo-img {
+  height: 54px;
+  width: auto;
   display: block;
+  object-fit: contain;
 }
-.logo-text .accent { color: var(--violet); }
+.footer .logo-img {
+  height: 46px;
+}
 .nav-list {
   display: flex;
   gap: 8px;
@@ -993,6 +982,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (max-width: 540px) {
+  .logo-img { height: 42px; }
   .whatsapp-float { width: 54px; height: 54px; bottom: 20px; right: 20px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
 }
@@ -1014,30 +1004,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo">
-        <span class="logo-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-            <defs>
-              <linearGradient id="logoGradHeader" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ff5f6d"/>
-                <stop offset="1" stop-color="#6a5af9"/>
-              </linearGradient>
-              <linearGradient id="logoGlowHeader" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffffff" stop-opacity="0.28"/>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <rect width="48" height="48" rx="12" fill="url(#logoGradHeader)"/>
-            <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#logoGlowHeader)"/>
-            <rect x="10" y="13" width="28" height="22" rx="4" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2"/>
-            <circle cx="14.5" cy="17" r="1.2" fill="#ffb86b"/>
-            <circle cx="18.5" cy="17" r="1.2" fill="#ff5f6d"/>
-            <circle cx="22.5" cy="17" r="1.2" fill="#6a5af9"/>
-            <path d="M15.5 27.5L12 24L15.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M32.5 27.5L36 24L32.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M27.2 28.8L20.8 19.2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <span class="logo-text">Software<span class="accent">Solutions</span></span>
+        <picture>
+          <source srcset="/assets/logo.webp" type="image/webp">
+          <img src="/assets/logo.png" alt="Software Solutions" class="logo-img" width="220" height="54">
+        </picture>
       </a>
       <nav class="nav" id="nav">
         <ul class="nav-list">
@@ -1326,30 +1296,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="container footer-inner">
       <div class="footer-brand">
         <a href="#" class="logo">
-          <span class="logo-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-              <defs>
-                <linearGradient id="logoGradFooter" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#ff5f6d"/>
-                  <stop offset="1" stop-color="#6a5af9"/>
-                </linearGradient>
-                <linearGradient id="logoGlowFooter" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#ffffff" stop-opacity="0.28"/>
-                  <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <rect width="48" height="48" rx="12" fill="url(#logoGradFooter)"/>
-              <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#logoGlowFooter)"/>
-              <rect x="10" y="13" width="28" height="22" rx="4" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2"/>
-              <circle cx="14.5" cy="17" r="1.2" fill="#ffb86b"/>
-              <circle cx="18.5" cy="17" r="1.2" fill="#ff5f6d"/>
-              <circle cx="22.5" cy="17" r="1.2" fill="#6a5af9"/>
-              <path d="M15.5 27.5L12 24L15.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M32.5 27.5L36 24L32.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M27.2 28.8L20.8 19.2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="logo-text">Software<span class="accent">Solutions</span></span>
+          <picture>
+            <source srcset="/assets/logo.webp" type="image/webp">
+            <img src="/assets/logo.png" alt="Software Solutions" class="logo-img" width="200" height="46">
+          </picture>
         </a>
         <p>AI Automation & Custom Software Development Agency</p>
       </div>
