@@ -30,13 +30,15 @@
   --shadow-md: 0 20px 50px -20px rgba(106, 90, 249, 0.45);
   --shadow-lg: 0 40px 90px -30px rgba(0, 0, 0, 0.5);
   --radius: 16px;
+  --topbar-h: 38px;
   --header-h: 72px;
+  --site-top: calc(var(--topbar-h) + var(--header-h));
   --font: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* ===== Reset ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+html { scroll-behavior: smooth; scroll-padding-top: var(--site-top); }
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -115,10 +117,60 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 10px;
 }
 
+/* ===== Top Bar ===== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: var(--topbar-h);
+  background: linear-gradient(90deg, #01411c 0%, #0a5c32 45%, #01411c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.top-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: topBarShine 4s ease-in-out infinite;
+}
+.top-bar-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.top-bar-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+.top-bar-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+.top-bar-text strong {
+  color: #ffb86b;
+  font-weight: 800;
+}
+@keyframes topBarShine {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
 /* ===== Header ===== */
 .header {
   position: fixed;
-  top: 0;
+  top: var(--topbar-h);
   left: 0;
   right: 0;
   z-index: 1000;
@@ -193,7 +245,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: var(--header-h);
+  padding-top: var(--site-top);
   overflow: hidden;
 }
 .hero-bg {
@@ -945,7 +997,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hamburger { display: flex; }
   .nav {
     position: fixed;
-    top: var(--header-h);
+    top: var(--site-top);
     left: 0;
     right: 0;
     background: rgba(8, 10, 20, 0.95);
@@ -983,6 +1035,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (max-width: 540px) {
+  :root { --topbar-h: 34px; }
+  .top-bar-text { font-size: 11px; letter-spacing: 0.02em; }
+  .top-bar-icon { font-size: 13px; }
   .logo-img { height: 42px; }
   .whatsapp-float { width: 54px; height: 54px; bottom: 20px; right: 20px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
@@ -1000,6 +1055,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   </style>
 </head>
 <body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="top-bar-icon" aria-hidden="true">🇵🇰</span>
+      <p class="top-bar-text">Pakistan's <strong>No. 1</strong> Software House</p>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="header" id="header">
