@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Software Solutions">
+  <defs>
+    <linearGradient id="ssGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff5f6d"/>
+      <stop offset="1" stop-color="#6a5af9"/>
+    </linearGradient>
+    <linearGradient id="ssGlow" x1="24" y1="8" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="12" fill="url(#ssGrad)"/>
+  <rect x="1" y="1" width="46" height="46" rx="11" fill="url(#ssGlow)"/>
+  <rect x="10" y="13" width="28" height="22" rx="4" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.2"/>
+  <circle cx="14.5" cy="17" r="1.2" fill="#ffb86b"/>
+  <circle cx="18.5" cy="17" r="1.2" fill="#ff5f6d"/>
+  <circle cx="22.5" cy="17" r="1.2" fill="#6a5af9"/>
+  <path d="M15.5 27.5L12 24L15.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32.5 27.5L36 24L32.5 20.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27.2 28.8L20.8 19.2" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
