@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Software Solutions — Trusted software house in Pakistan. Expert website development, web apps, mobile apps, and digital solutions for businesses worldwide.">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark">
   <title>Software Solutions | Trusted Software House in Pakistan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +26,11 @@
   --radius: 12px;
   --header-h: 72px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color-scheme: dark;
 }
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
-body { font-family: var(--font); color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); background: #0a0a0f; }
+body { font-family: var(--font); color: var(--text); background: #0a0a0f !important; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 ul { list-style: none; }
@@ -114,19 +117,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Floating tech badges */
 .tech-badge {
-  position: absolute; width: 44px; height: 44px; border-radius: 50%;
+  position: absolute; width: 48px; height: 48px; border-radius: 50%;
   background: #fff; display: grid; place-items: center;
-  font-size: 0.55rem; font-weight: 800; color: #1e293b;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  z-index: 5; text-align: center; line-height: 1.1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  z-index: 5; padding: 10px;
 }
-.tech-badge.php { top: 5%; left: 8%; background: #8892be; color: #fff; }
-.tech-badge.laravel { top: 18%; right: 0; background: #ff2d20; color: #fff; font-size: 0.45rem; }
-.tech-badge.react { top: 42%; left: -4%; background: #61dafb; color: #1e293b; }
-.tech-badge.flutter { top: 8%; right: 12%; background: #54c5f8; color: #fff; font-size: 0.45rem; }
-.tech-badge.figma { bottom: 35%; left: 2%; background: #f24e1e; color: #fff; font-size: 0.45rem; }
-.tech-badge.js { bottom: 22%; right: -2%; background: #f7df1e; color: #1e293b; }
-.tech-badge.html { bottom: 8%; left: 15%; background: #e44d26; color: #fff; font-size: 0.45rem; }
+.tech-badge img { width: 100%; height: 100%; object-fit: contain; }
+.tech-badge.php { top: 4%; left: 6%; }
+.tech-badge.laravel { top: 16%; right: -2%; }
+.tech-badge.react { top: 40%; left: -6%; }
+.tech-badge.flutter { top: 6%; right: 10%; }
+.tech-badge.figma { bottom: 34%; left: 0; }
+.tech-badge.js { bottom: 20%; right: -4%; }
+.tech-badge.html { bottom: 6%; left: 12%; }
 
 /* Floating stat cards on hero */
 .hero-stat-card {
@@ -158,8 +161,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* Sections */
-.section { padding: 80px 0; }
-.section-alt { background: var(--bg-card); }
+.section { padding: 80px 0; background: #0a0a0f; }
+.section-alt { background: #12121a; }
 .section-head { text-align: center; max-width: 680px; margin: 0 auto 48px; }
 .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 14px; color: #fff; }
 .section-head p { color: var(--text-muted); font-size: 1.02rem; }
@@ -226,14 +229,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* Portfolio */
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .portfolio-card {
-  border-radius: 16px; overflow: hidden; background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden; background: #1a1a24; border: 1px solid var(--border);
   transition: 0.3s;
 }
 .portfolio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(35,178,147,0.3); }
-.portfolio-thumb { aspect-ratio: 4/3; overflow: hidden; position: relative; }
-.portfolio-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-.portfolio-card:hover .portfolio-thumb img { transform: scale(1.05); }
-.portfolio-card h3 { padding: 18px 20px; font-size: 1rem; font-weight: 700; color: #fff; }
+.portfolio-thumb { aspect-ratio: 16/10; overflow: hidden; position: relative; background: #0a0a0f; }
+.portfolio-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
+.portfolio-card:hover .portfolio-thumb img { transform: scale(1.06); }
+.portfolio-card h3 { padding: 16px 18px; font-size: 1rem; font-weight: 700; color: #fff; background: #1a1a24; }
 
 /* Team */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -384,15 +387,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
           <div class="hero-visual">
             <div class="hero-circle-bg"></div>
             <div class="hero-person">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=500&fit=crop&crop=face" alt="Software Solutions team member" loading="eager">
+              <img src="assets/images/hero-person.jpg" alt="Software Solutions team member" loading="eager" width="500" height="500">
             </div>
-            <span class="tech-badge php">PHP</span>
-            <span class="tech-badge laravel">Laravel</span>
-            <span class="tech-badge react">React</span>
-            <span class="tech-badge flutter">Flutter</span>
-            <span class="tech-badge figma">Figma</span>
-            <span class="tech-badge js">JS</span>
-            <span class="tech-badge html">HTML</span>
+            <span class="tech-badge php"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"></span>
+            <span class="tech-badge laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"></span>
+            <span class="tech-badge react"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"></span>
+            <span class="tech-badge flutter"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"></span>
+            <span class="tech-badge figma"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"></span>
+            <span class="tech-badge js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></span>
+            <span class="tech-badge html"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></span>
             <div class="hero-stat-card top">
               <div class="stat-label">Total Projects</div>
               <div class="stat-num">200+</div>
@@ -435,7 +438,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     <div class="container">
       <div class="about-grid">
         <div class="about-visual reveal">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=500&fit=crop" alt="Software Solutions development team" loading="lazy">
+          <img src="assets/images/about-team.jpg" alt="Software Solutions development team" loading="lazy" width="700" height="500">
         </div>
         <div class="reveal">
           <span class="eyebrow">Why Partner With Us?</span>
@@ -532,27 +535,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
       <div class="portfolio-grid">
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=375&fit=crop" alt="Healthcare Platform" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-healthcare.jpg" alt="Healthcare Platform" loading="lazy" width="600" height="375"></div>
           <h3>Healthcare Platform</h3>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=500&h=375&fit=crop" alt="Transportation App" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-transport.jpg" alt="Transportation App" loading="lazy" width="600" height="375"></div>
           <h3>Transportation App</h3>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=375&fit=crop" alt="Restaurant System" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-restaurant.jpg" alt="Restaurant System" loading="lazy" width="600" height="375"></div>
           <h3>Restaurant System</h3>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&h=375&fit=crop" alt="Real Estate Portal" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-realestate.jpg" alt="Real Estate Portal" loading="lazy" width="600" height="375"></div>
           <h3>Real Estate Portal</h3>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=375&fit=crop" alt="E-Learning Platform" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-elearning.jpg" alt="E-Learning Platform" loading="lazy" width="600" height="375"></div>
           <h3>E-Learning Platform</h3>
         </div>
         <div class="portfolio-card reveal">
-          <div class="portfolio-thumb"><img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=500&h=375&fit=crop" alt="Donation Platform" loading="lazy"></div>
+          <div class="portfolio-thumb"><img src="assets/images/portfolio-donation.jpg" alt="Donation Platform" loading="lazy" width="600" height="375"></div>
           <h3>Donation Platform</h3>
         </div>
       </div>
