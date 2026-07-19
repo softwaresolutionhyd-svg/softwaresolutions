@@ -1,0 +1,82 @@
+name: Deploy Signature
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'signature/**'
+      - '.github/workflows/deploy-signature.yml'
+
+jobs:
+  deploy-signature:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify signature project exists
+        run: |
+          if [ ! -f signature/composer.json ]; then
+            echo "signature/composer.json not found. Add the Laravel project under signature/ first."
+            exit 1
+          fi
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, curl, fileinfo, pdo, mysql, tokenizer, bcmath
+          coverage: none
+
+      - name: Install Composer dependencies
+        working-directory: signature
+        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+
+      - name: Setup Node
+        if: hashFiles('signature/package-lock.json') != ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: signature/package-lock.json
+
+      - name: Build frontend assets
+        if: hashFiles('signature/package-lock.json') != ''
+        working-directory: signature
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        env:
+          FTP_SERVER: ${{ secrets.SIGNATURE_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.SIGNATURE_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.SIGNATURE_FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.SIGNATURE_FTP_SERVER_DIR }}
+        run: |
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER" <<EOF
+          set ftp:ssl-allow no
+          set ftp:passive-mode on
+          set ftp:prefer-epsv false
+          set net:timeout 30
+          set net:max-retries 3
+          mirror --reverse --delete --verbose \
+            --exclude-glob .git* \
+            --exclude-glob .github/** \
+            --exclude-glob node_modules/** \
+            --exclude-glob tests/** \
+            --exclude-glob .env \
+            --exclude-glob .env.* \
+            --exclude-glob storage/logs/** \
+            --exclude-glob storage/framework/cache/data/** \
+            --exclude-glob storage/framework/sessions/** \
+            --exclude-glob storage/framework/views/** \
+            --exclude-glob .phpunit.result.cache \
+            --exclude-glob phpunit.xml \
+            ./signature/ "$FTP_SERVER_DIR"
+          bye
+          EOF
