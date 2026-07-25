@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'signature/**'
 
 jobs:
   ftp-deploy:
@@ -28,6 +30,6 @@ jobs:
           set ftp:prefer-epsv false
           set net:timeout 30
           set net:max-retries 3
-          mirror --reverse --delete --verbose --exclude-glob .git* --exclude-glob ".github/*" ./ "$FTP_SERVER_DIR"
+          mirror --reverse --delete --verbose --exclude-glob .git* --exclude-glob ".github/*" --exclude-glob signature/** ./ "$FTP_SERVER_DIR"
           bye
           EOF
